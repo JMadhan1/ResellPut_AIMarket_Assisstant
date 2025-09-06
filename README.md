@@ -118,7 +118,7 @@ Advanced NLP system for marketplace safety:
 
 1. **Clone the repository**
 ```bash
-git clone <repository-url>
+git clone <https://github.com/JMadhan1/ResellPut_AIMarket_Assisstant>
 cd marketplace-ai-assistant
 ```
 
@@ -160,7 +160,7 @@ uvicorn api.main:app --host 0.0.0.0 --port 8000 --reload
 
 #### Price Analysis Request
 ```bash
-curl -X POST "https://your-domain/negotiate" \
+curl -X POST "https://ResellpurAiAssistant/negotiate" \
   -H "Content-Type: application/json" \
   -d '{
     "title": "iPhone 12",
