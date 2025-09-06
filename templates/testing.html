@@ -1,0 +1,222 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resellpur AI Testing Suite</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="dashboard-nav">
+        <div class="nav-brand">
+            <h2>🧪 Resellpur AI Testing Suite</h2>
+        </div>
+        <div class="nav-links">
+            <a href="/">Main App</a>
+            <a href="/dashboard">Dashboard</a>
+            <a href="/testing" class="active">Testing</a>
+        </div>
+    </nav>
+
+    <div class="testing-container">
+        <div class="testing-header">
+            <h1>AI Model Testing & Validation</h1>
+            <p>Test individual cases, run bulk validations, and benchmark performance</p>
+        </div>
+
+        <!-- Test Mode Selector -->
+        <div class="test-mode-selector">
+            <button class="tab-btn active" onclick="switchTab('single')">Single Test</button>
+            <button class="tab-btn" onclick="switchTab('bulk')">Bulk Testing</button>
+            <button class="tab-btn" onclick="switchTab('benchmark')">Performance Benchmark</button>
+            <button class="tab-btn" onclick="switchTab('examples')">Example Cases</button>
+        </div>
+
+        <!-- Single Test Tab -->
+        <div id="single-tab" class="test-tab active">
+            <div class="test-section">
+                <h3>Single Case Testing</h3>
+                <div class="test-forms">
+                    <div class="test-form-container">
+                        <h4>Price Analysis Test</h4>
+                        <form id="single-price-test" class="test-form">
+                            <div class="form-row">
+                                <input type="text" name="title" placeholder="Product Title" required>
+                                <select name="category" required>
+                                    <option value="">Select Category</option>
+                                    <option value="Mobile">Mobile</option>
+                                    <option value="Laptop">Laptop</option>
+                                    <option value="Electronics">Electronics</option>
+                                    <option value="Camera">Camera</option>
+                                    <option value="Fashion">Fashion</option>
+                                    <option value="Furniture">Furniture</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" name="brand" placeholder="Brand" required>
+                                <select name="condition" required>
+                                    <option value="">Select Condition</option>
+                                    <option value="Like New">Like New</option>
+                                    <option value="Good">Good</option>
+                                    <option value="Fair">Fair</option>
+                                </select>
+                            </div>
+                            <div class="form-row">
+                                <input type="number" name="age_months" placeholder="Age (months)" required>
+                                <input type="number" name="asking_price" placeholder="Asking Price (₹)" required>
+                            </div>
+                            <div class="form-row">
+                                <select name="location" required>
+                                    <option value="">Select Location</option>
+                                    <option value="Mumbai">Mumbai</option>
+                                    <option value="Delhi">Delhi</option>
+                                    <option value="Bangalore">Bangalore</option>
+                                    <option value="Chennai">Chennai</option>
+                                    <option value="Pune">Pune</option>
+                                    <option value="Hyderabad">Hyderabad</option>
+                                </select>
+                                <input type="text" name="expected_range" placeholder="Expected Price Range (optional)">
+                            </div>
+                            <button type="submit" class="test-btn">Run Price Test</button>
+                        </form>
+                    </div>
+
+                    <div class="test-form-container">
+                        <h4>Content Moderation Test</h4>
+                        <form id="single-moderation-test" class="test-form">
+                            <textarea name="message" placeholder="Enter message to test..." required></textarea>
+                            <input type="text" name="context" placeholder="Context (optional)">
+                            <select name="expected_status">
+                                <option value="">Expected Status (optional)</option>
+                                <option value="safe">Safe</option>
+                                <option value="abusive">Abusive</option>
+                                <option value="phone_detected">Phone Detected</option>
+                                <option value="policy_violation">Policy Violation</option>
+                            </select>
+                            <button type="submit" class="test-btn">Run Moderation Test</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div id="single-test-results" class="test-results">
+                    <!-- Results will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Bulk Testing Tab -->
+        <div id="bulk-tab" class="test-tab">
+            <div class="test-section">
+                <h3>Bulk Testing</h3>
+                <div class="bulk-controls">
+                    <div class="upload-section">
+                        <h4>Upload Test Data</h4>
+                        <input type="file" id="bulk-file-input" accept=".csv,.json" onchange="handleBulkFileUpload(event)">
+                        <div class="file-format-info">
+                            <p><strong>Supported formats:</strong> CSV, JSON</p>
+                            <p><strong>Required fields for Price Testing:</strong> title, category, brand, condition, age_months, asking_price, location</p>
+                            <p><strong>Required fields for Moderation:</strong> message, context (optional)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="bulk-options">
+                        <h4>Bulk Test Options</h4>
+                        <label>
+                            <input type="radio" name="bulk-type" value="price" checked> Price Analysis
+                        </label>
+                        <label>
+                            <input type="radio" name="bulk-type" value="moderation"> Content Moderation
+                        </label>
+                        <label>
+                            <input type="checkbox" id="parallel-processing" checked> Parallel Processing
+                        </label>
+                        <label>
+                            Batch Size: <input type="number" id="batch-size" value="10" min="1" max="100">
+                        </label>
+                    </div>
+                </div>
+
+                <div class="bulk-progress">
+                    <div id="bulk-progress-bar" class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+                    <div id="bulk-progress-text">Ready for bulk testing</div>
+                </div>
+
+                <button id="start-bulk-test" class="test-btn" onclick="startBulkTest()" disabled>Start Bulk Test</button>
+
+                <div id="bulk-test-results" class="test-results">
+                    <!-- Bulk results will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Performance Benchmark Tab -->
+        <div id="benchmark-tab" class="test-tab">
+            <div class="test-section">
+                <h3>Performance Benchmarking</h3>
+                <div class="benchmark-controls">
+                    <div class="benchmark-settings">
+                        <h4>Benchmark Configuration</h4>
+                        <label>
+                            Test Type:
+                            <select id="benchmark-type">
+                                <option value="price">Price Analysis</option>
+                                <option value="moderation">Content Moderation</option>
+                                <option value="mixed">Mixed Load</option>
+                            </select>
+                        </label>
+                        <label>
+                            Concurrent Requests: <input type="number" id="concurrent-requests" value="5" min="1" max="50">
+                        </label>
+                        <label>
+                            Total Requests: <input type="number" id="total-requests" value="100" min="10" max="1000">
+                        </label>
+                        <label>
+                            <input type="checkbox" id="stress-test"> Stress Test Mode
+                        </label>
+                    </div>
+                </div>
+
+                <button id="start-benchmark" class="test-btn" onclick="startBenchmark()">Start Benchmark</button>
+
+                <div id="benchmark-results" class="benchmark-results">
+                    <!-- Benchmark results will be displayed here -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Example Cases Tab -->
+        <div id="examples-tab" class="test-tab">
+            <div class="test-section">
+                <h3>Example Test Cases</h3>
+                <div class="examples-grid">
+                    <div class="example-category">
+                        <h4>Price Analysis Examples</h4>
+                        <div class="example-cases" id="price-examples">
+                            <!-- Price examples will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="example-category">
+                        <h4>Content Moderation Examples</h4>
+                        <div class="example-cases" id="moderation-examples">
+                            <!-- Moderation examples will be loaded here -->
+                        </div>
+                    </div>
+                    
+                    <div class="example-category">
+                        <h4>Edge Cases</h4>
+                        <div class="example-cases" id="edge-cases">
+                            <!-- Edge cases will be loaded here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='testing.js') }}"></script>
+</body>
+</html>

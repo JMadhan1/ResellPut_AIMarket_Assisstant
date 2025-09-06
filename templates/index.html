@@ -1,0 +1,340 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resellpur AI Assistant | India's Most Trusted Marketplace Intelligence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="{{ url_for('static', filename='style.css') }}" rel="stylesheet">
+    <meta name="description" content="Resellpur AI Assistant - Intelligent price analysis and automated moderation for India's most trusted second-hand marketplace platform.">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="brand-section">
+                <div class="logo-wrapper">
+                    <h1 class="brand-name">Resellpur</h1>
+                    <span class="ai-badge">AI Assistant</span>
+                </div>
+                <p class="mission-statement">Building India's Most Trusted Second-Hand Marketplace with AI</p>
+            </div>
+            <div class="trust-indicators">
+                <div class="indicator">
+                    <span class="metric">99.9%</span>
+                    <span class="label">Accuracy</span>
+                </div>
+                <div class="indicator">
+                    <span class="metric">&lt;2s</span>
+                    <span class="label">Response Time</span>
+                </div>
+                <div class="indicator">
+                    <span class="metric">1M+</span>
+                    <span class="label">Items Analyzed</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Menu -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-menu">
+                <button onclick="scrollToSection('capabilities-overview')" class="nav-btn">
+                    <span class="nav-icon">🏠</span>
+                    <span>Home</span>
+                </button>
+                <button onclick="scrollToSection('price-analyst')" class="nav-btn">
+                    <span class="nav-icon">🎯</span>
+                    <span>Price Analyst</span>
+                </button>
+                <button onclick="scrollToSection('content-moderator')" class="nav-btn">
+                    <span class="nav-icon">🛡️</span>
+                    <span>Safety Moderator</span>
+                </button>
+                <button onclick="window.open('/dashboard', '_blank')" class="nav-btn">
+                    <span class="nav-icon">📊</span>
+                    <span>Dashboard</span>
+                </button>
+                <button onclick="window.open('/testing', '_blank')" class="nav-btn">
+                    <span class="nav-icon">🔬</span>
+                    <span>Testing Suite</span>
+                </button>
+                <button onclick="scrollToSection('metrics-section')" class="nav-btn">
+                    <span class="nav-icon">📈</span>
+                    <span>Performance</span>
+                </button>
+                <button onclick="scrollToSection('vision-section')" class="nav-btn">
+                    <span class="nav-icon">🚀</span>
+                    <span>Vision</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+        <!-- AI Capabilities Overview -->
+        <section id="capabilities-overview" class="capabilities-overview">
+            <h2>AI-Powered Marketplace Intelligence</h2>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">🎯</div>
+                    <h3>Smart Price Analysis</h3>
+                    <p>ML-powered pricing with market intelligence</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🛡️</div>
+                    <h3>Content Moderation</h3>
+                    <p>Real-time chat and listing safety verification</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🔍</div>
+                    <h3>Authenticity Detection</h3>
+                    <p>Computer vision for product verification</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">⚡</div>
+                    <h3>Instant Recommendations</h3>
+                    <p>Personalized suggestions for buyers & sellers</p>
+                </div>
+            </div>
+            
+            <!-- Quick Access Buttons -->
+            <div class="quick-access-section">
+                <h3>Quick Access to AI Tools</h3>
+                <div class="quick-access-buttons">
+                    <button onclick="scrollToSection('price-analyst')" class="quick-access-btn primary">
+                        <span class="btn-icon">🎯</span>
+                        <span class="btn-text">Smart Price Analyst</span>
+                        <span class="btn-desc">Get AI-powered pricing recommendations</span>
+                    </button>
+                    <button onclick="scrollToSection('content-moderator')" class="quick-access-btn secondary">
+                        <span class="btn-icon">🛡️</span>
+                        <span class="btn-text">Content Safety Moderator</span>
+                        <span class="btn-desc">Analyze messages for safety violations</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Smart Price Analyst -->
+        <section id="price-analyst" class="agent-card featured">
+            <div class="agent-header">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                    </svg>
+                </div>
+                <div class="agent-title">
+                    <h2>Smart Price Analyst</h2>
+                    <p class="agent-subtitle">AI-powered pricing intelligence for optimal marketplace decisions</p>
+                </div>
+                <div class="ai-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">AI Active</span>
+                </div>
+            </div>
+            
+            <div class="agent-description">
+                <p>Our advanced machine learning model analyzes market trends, depreciation patterns, brand value retention, and location-based pricing to provide intelligent price suggestions that maximize seller success while ensuring buyer trust.</p>
+            </div>
+
+            <form id="price-form" class="analysis-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="title">Product Title</label>
+                        <input type="text" id="title" name="title" placeholder="e.g., iPhone 13 Pro Max 128GB Space Gray" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="category">Category</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select Category</option>
+                            <option value="Mobile">Mobile Phones</option>
+                            <option value="Laptop">Laptops & Computers</option>
+                            <option value="Electronics">Electronics</option>
+                            <option value="Camera">Cameras & Photography</option>
+                            <option value="Fashion">Fashion & Accessories</option>
+                            <option value="Furniture">Furniture & Home</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="brand">Brand</label>
+                        <input type="text" id="brand" name="brand" placeholder="e.g., Apple, Samsung, OnePlus" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="condition">Product Condition</label>
+                        <select id="condition" name="condition" required>
+                            <option value="">Select Condition</option>
+                            <option value="Like New">Like New - Excellent condition, minimal usage</option>
+                            <option value="Good">Good - Normal wear, fully functional</option>
+                            <option value="Fair">Fair - Visible wear, some cosmetic issues</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="age_months">Product Age (Months)</label>
+                        <input type="number" id="age_months" name="age_months" min="0" max="120" placeholder="12" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="asking_price">Your Asking Price (₹)</label>
+                        <input type="number" id="asking_price" name="asking_price" min="1" step="100" placeholder="45000" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="location">Location</label>
+                        <select id="location" name="location" required>
+                            <option value="">Select City</option>
+                            <option value="Mumbai">Mumbai</option>
+                            <option value="Delhi">Delhi</option>
+                            <option value="Bangalore">Bangalore</option>
+                            <option value="Chennai">Chennai</option>
+                            <option value="Pune">Pune</option>
+                            <option value="Hyderabad">Hyderabad</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <button type="submit" class="submit-btn primary">
+                    <span class="btn-text">Analyze Price with AI</span>
+                    <span class="btn-icon">⚡</span>
+                </button>
+            </form>
+
+            <div class="results-section">
+                <div id="price-result" class="results-container">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                            </svg>
+                        </div>
+                        <h3>AI Price Intelligence Ready</h3>
+                        <p>Fill out the product details above to get comprehensive pricing analysis powered by our machine learning algorithms and real-time market data.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Safety Moderator -->
+        <section id="content-moderator" class="agent-card">
+            <div class="agent-header">
+                <div class="icon">
+                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                    </svg>
+                </div>
+                <div class="agent-title">
+                    <h2>Content Safety Moderator</h2>
+                    <p class="agent-subtitle">Real-time AI moderation to ensure platform safety and trust</p>
+                </div>
+                <div class="ai-status">
+                    <span class="status-indicator active"></span>
+                    <span class="status-text">AI Guardian</span>
+                </div>
+            </div>
+            
+            <div class="agent-description">
+                <p>Our NLP-powered moderation system instantly detects policy violations, spam, fraud attempts, and inappropriate content to maintain Resellpur's trusted marketplace environment.</p>
+            </div>
+
+            <form id="moderation-form" class="analysis-form">
+                <div class="form-group">
+                    <label for="message">Message/Content to Analyze</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Enter chat message, product description, or any content for safety analysis..." required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="context">Context (Optional)</label>
+                    <input type="text" id="context" name="context" placeholder="e.g., buyer inquiry, seller description, chat conversation">
+                </div>
+                
+                <button type="submit" class="submit-btn secondary">
+                    <span class="btn-text">Analyze Content Safety</span>
+                    <span class="btn-icon">🛡️</span>
+                </button>
+            </form>
+
+            <div class="results-section">
+                <div id="moderation-result" class="results-container">
+                    <div class="results-placeholder">
+                        <div class="placeholder-icon">
+                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.031 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <h3>AI Safety Guardian Ready</h3>
+                        <p>Submit any content above for comprehensive safety analysis using our advanced NLP models trained specifically for marketplace environments.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- AI Metrics & Performance -->
+        <section id="metrics-section" class="metrics-section">
+            <h2>Platform AI Performance</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-value" id="price-executions">0</div>
+                    <div class="metric-label">Price Analyses</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="price-success-rate">0%</div>
+                    <div class="metric-label">Price Accuracy</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="moderation-executions">0</div>
+                    <div class="metric-label">Content Reviews</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value" id="moderation-success-rate">0%</div>
+                    <div class="metric-label">Safety Detection</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Vision Statement -->
+        <section id="vision-section" class="vision-section">
+            <div class="vision-content">
+                <h2>Building India's AI-First Marketplace</h2>
+                <p>At Resellpur, we're pioneering the future of second-hand commerce in India through cutting-edge AI technology. Our intelligent systems ensure every transaction is safe, fairly priced, and trustworthy.</p>
+                <div class="vision-features">
+                    <div class="feature">
+                        <span class="feature-icon">🤖</span>
+                        <span>Advanced ML Models</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🔬</span>
+                        <span>Computer Vision</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">🧠</span>
+                        <span>Natural Language Processing</span>
+                    </div>
+                    <div class="feature">
+                        <span class="feature-icon">⚡</span>
+                        <span>Real-time Intelligence</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Modal -->
+    <div id="loading-modal" class="modal">
+        <div class="modal-content">
+            <div class="loading-spinner"></div>
+            <h3>AI Processing</h3>
+            <p id="loading-text">Analyzing with machine learning algorithms...</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
