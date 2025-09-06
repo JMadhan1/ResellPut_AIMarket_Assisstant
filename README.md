@@ -294,4 +294,4 @@ This project fulfills all requirements of the Resellpur AI Engineer Intern assig
 - ✅ **Production Ready**: Error handling, logging, documentation
 - ✅ **Bonus Features**: Web UI, batch processing, advanced analytics
 
-**Built with ❤️ for Resellpur's AI-first marketplace vision**
+**Built with ❤️ for Resellpur's AI-first marketplace vision    BY J MADHAN**
